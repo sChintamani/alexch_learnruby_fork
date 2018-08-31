@@ -37,21 +37,21 @@ require "calculator"
 
 describe "add" do
   it "adds 0 and 0" do
-    add(0,0).should == 0
+    add(0, 0).should == 0
   end
 
   it "adds 2 and 2" do
-    add(2,2).should == 4
+    add(2, 2).should == 4
   end
 
   it "adds positive numbers" do
-    add(2,6).should == 8
+    add(2, 6).should == 8
   end
 end
 
 describe "subtract" do
   it "subtracts numbers" do
-    subtract(10,4).should == 6
+    subtract(10, 4).should == 6
   end
 end
 
@@ -65,11 +65,11 @@ describe "sum" do
   end
 
   it "computes the sum of an array of two numbers" do
-    sum([7,11]).should == 18
+    sum([7, 11]).should == 18
   end
 
   it "computes the sum of an array of many numbers" do
-    sum([1,3,5,7,9]).should == 25
+    sum([1, 3, 5, 7, 9]).should == 25
   end
 end
 
@@ -78,22 +78,57 @@ end
 # write tests and code for the following:
 
 describe "#multiply" do
+  it "multiplies two numbers" do
+    expect(multiply(2, 4)).to eq(8)
+  end
 
-  it "multiplies two numbers"
+  it "returns zero when one of the two numbers is zero" do
+    expect(multiply(0, 4)).to eq(0)
+  end
 
-  it "multiplies several numbers"
+  it "multiplies several numbers" do
+    expect(multiply(3, 4, 5, 10)).to eq(600)
+  end
 
+  it "returns zero when one of the multiple numbers is zero" do
+    expect(multiply(3, 4, 5, 0, 10)).to eq(0)
+  end
 end
 
-describe "#power" do
-  it "raises one number to the power of another number"
+describe " #power" do
+  it "raises one number to the power of another number" do
+    expect(power(2, 5)).to eq(32)
+  end
+
+  it "any number raised to power zero should return 1" do
+    expect(power(6, 0)).to eq(1)
+  end
+
+  it "zero raised to any power should return 0" do
+    expect(power(0, 7)).to eq(0)
+  end
 end
 
 # http://en.wikipedia.org/wiki/Factorial
 describe "#factorial" do
-  it "computes the factorial of 0"
-  it "computes the factorial of 1"
-  it "computes the factorial of 2"
-  it "computes the factorial of 5"
-  it "computes the factorial of 10"
+  it "computes the factorial of 0" do
+    expect(factorial(0)).to eq(1)
+  end
+
+  it "computes the factorial of 1" do
+    expect(factorial(1)).to eq(1)
+  end
+  it "computes the factorial of 2" do
+    expect(factorial(2)).to eq(2)
+  end
+  it "computes the factorial of 5" do
+    expect(factorial(5)).to eq(120)
+  end
+  it "computes the factorial of 10" do
+    expect(factorial(10)).to eq(3628800)
+  end
+
+  it "computes the factorial of 10.3" do
+    expect(factorial(10.3)).to eq(3628800)
+  end
 end
